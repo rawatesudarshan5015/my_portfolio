@@ -3,14 +3,14 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-
+import ThemeToggle from './ThemeToggle'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
   const navItems = [
     { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
+  { label: 'About', path: '/about' },
     { label: 'Projects', path: '/projects' },
     { label: 'Contact', path: '/contact' },
   ]
@@ -20,6 +20,7 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="text-xl font-bold">Sudarshan</div>
+          <ThemeToggle />
           <div className="hidden md:flex space-x-6">
             {navItems.map(({ label, path }) => (
               <Link
