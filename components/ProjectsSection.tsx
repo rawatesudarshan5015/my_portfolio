@@ -4,6 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
+import {
+  FaHospitalUser,
+  FaUniversity,
+  FaChartLine,
+  FaHeartbeat,
+} from 'react-icons/fa'
 import { FiExternalLink } from 'react-icons/fi'
 
 // Project type
@@ -12,32 +18,41 @@ type Project = {
   description: string
   image: string
   link: string
+  icon: React.ReactNode
 }
 
 const projects: Project[] = [
   {
     title: 'Decentralized Medical Record System',
-    description: 'A blockchain-based system to share and manage medical records securely.',
+    description:
+      'A blockchain-based system to share and manage medical records securely.',
     image: '/projects/medical.jpg',
     link: '/projects#medical',
+    icon: <FaHeartbeat className="text-pink-500 text-2xl" />,
   },
   {
     title: 'College Connect Platform',
-    description: 'A social networking platform for college students and alumni.',
+    description:
+      'A social networking platform for college students and alumni.',
     image: '/projects/college.jpg',
     link: '/projects#college',
+    icon: <FaUniversity className="text-blue-500 text-2xl" />,
   },
   {
     title: 'GoQuant Trade Simulator',
-    description: 'A trading simulator with live order book data and Almgren-Chriss model.',
+    description:
+      'A trading simulator with live order book data and Almgren-Chriss model.',
     image: '/projects/goquant.jpg',
     link: '/projects#goquant',
+    icon: <FaChartLine className="text-green-500 text-2xl" />,
   },
   {
     title: 'Hospital Management System',
-    description: 'Citywide hospital platform with multi-hospital support and secure data sharing.',
+    description:
+      'Citywide hospital platform with multi-hospital support and secure data sharing.',
     image: '/projects/hospital.jpg',
     link: '/projects#hospital',
+    icon: <FaHospitalUser className="text-teal-500 text-2xl" />,
   },
 ]
 
@@ -63,6 +78,7 @@ const ProjectsSection: React.FC = () => {
             viewport={{ once: true }}
             className="group border border-gray-300 dark:border-gray-700 rounded-2xl bg-white dark:bg-[#101d2e] shadow-md hover:shadow-lg hover:border-blue-500 transition-all duration-300"
           >
+            {/* Image */}
             <div className="relative w-full h-48 sm:h-56 rounded-t-2xl overflow-hidden">
               <Image
                 src={project.image}
@@ -71,15 +87,19 @@ const ProjectsSection: React.FC = () => {
                 className="object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
             </div>
+
+            {/* Content */}
             <div className="p-6 flex flex-col justify-between h-full">
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              <div className="flex items-center gap-3 mb-3">
+                {project.icon}
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
               </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                {project.description}
+              </p>
+
               <Link
                 href={project.link}
                 className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium hover:underline mt-auto"
