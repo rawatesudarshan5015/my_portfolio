@@ -23,8 +23,6 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
   const [mounted, setMounted] = useState(false)
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
-  // username= 'rawatesudarshan5015'
-
   // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true)
@@ -33,11 +31,13 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
     }
   }, [])
 
+  // Fetch GitHub data
   useEffect(() => {
     const fetchRepos = async () => {
       try {
         const res = await fetch(`https://api.github.com/users/${username}/repos`)
         if (!res.ok) throw new Error('Failed to fetch repositories.')
+
         const data: Repo[] = await res.json()
 
         // Sort by stars and take top 6
@@ -69,24 +69,33 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
   }, [username])
 
   if (!mounted) return null
-  if (loading) return <p className="text-center text-gray-500">Loading GitHub skills...</p>
-  if (error) return <p className="text-center text-red-500">Failed to load GitHub data.</p>
+  if (loading)
+    return <p className="text-center text-gray-500">Loading GitHub data...</p>
+  if (error)
+    return <p className="text-center text-red-500">Failed to load GitHub data.</p>
 
   return (
-    <section className="py-16 px-6 md:px-16 bg-gray-50 dark:bg-[#0d1324] transition-colors duration-500">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 text-center mb-12">
-        🔧 GitHub Projects & Skills
-      </h2>
+    <section  className="py-20 px-6 md:px-16 bg-[#0b1623] dark:bg-[#0a1420] text-gray-100 transition-colors duration-500">
+      {/* 🧠 Section Header */}
+      <motion.h2
+        className="text-4xl md:text-5xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        🧩 GitHub Projects & Skills
+      </motion.h2>
 
       {/* 🧠 Top Languages */}
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
+      <div className="flex flex-wrap justify-center gap-4 mb-16">
         {languages.map((lang) => (
           <motion.span
             key={lang}
-            className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 rounded-full font-medium shadow-sm"
+            className="px-5 py-2.5 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 rounded-full font-medium shadow-sm hover:shadow-md transition-transform transform hover:scale-105"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
           >
             {lang}
@@ -95,24 +104,26 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
       </div>
 
       {/* 🗂️ Repositories Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
         {repos.map((repo) => (
           <motion.a
             key={repo.id}
             href={repo.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white dark:bg-[#11182a] p-5 rounded-xl shadow-md hover:shadow-xl transition flex flex-col gap-2"
+            className="bg-white dark:bg-[#11182a] p-6 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-transparent hover:border-blue-400"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-lg">{repo.name}</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm flex-1">
+            <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100 mb-1">
+              {repo.name}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 flex-1 leading-relaxed">
               {repo.description || 'No description provided.'}
             </p>
-            <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mt-2">
+            <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-auto">
               <span>{repo.language || 'N/A'}</span>
               <span>⭐ {repo.stargazers_count}</span>
             </div>
@@ -122,11 +133,17 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
 
       {/* 🟩 GitHub Contribution Graph */}
       <div className="max-w-4xl mx-auto text-center">
-        <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">
+        <motion.h3
+          className="text-3xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           🟢 GitHub Activity
-        </h3>
+        </motion.h3>
 
-        <div className="overflow-x-auto mb-10">
+        <div className="overflow-x-auto mb-14 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#11182a] p-4 shadow-sm">
           <GitHubCalendar
             username={username}
             blockSize={15}
@@ -136,26 +153,26 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
           />
         </div>
 
-        {/* 📊 Streak + Stats Badges */}
-        <div className="grid md:grid-cols-2 gap-6 justify-center items-center">
+        {/* 📊 Streak + Stats */}
+        <div className="grid md:grid-cols-2 gap-8 justify-center items-center">
           <motion.img
             loading="lazy"
             src={`https://streak-stats.demolab.com?user=${username}&theme=${theme}&hide_border=true`}
             alt="GitHub Streak"
-            className="mx-auto rounded-lg shadow-md"
+            className="mx-auto rounded-xl shadow-md"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           />
           <motion.img
             loading="lazy"
             src={`https://github-readme-stats-sigma-five.vercel.app/api?username=${username}&show_icons=true&theme=${theme}&hide_border=true`}
             alt="GitHub Stats"
-            className="mx-auto rounded-lg shadow-md"
+            className="mx-auto rounded-xl shadow-md"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           />
         </div>
