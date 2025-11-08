@@ -16,8 +16,10 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-github-calendar": "^4.5.11",
+    "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
-    "react-simple-typewriter": "^5.0.1"
+    "react-simple-typewriter": "^5.0.1",
+    "resend": "^6.4.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

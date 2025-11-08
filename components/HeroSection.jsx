@@ -39,7 +39,9 @@ export default function HeroSection() {
   if (!mounted) return null
 
   return (
-    <div className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 relative overflow-hidden">
+    <div className="bg-gradient-to-b from-gray-50 via-blue-50 to-gray-100 
+dark:from-gray-900 dark:via-gray-800 dark:to-[#0b1623] 
+text-gray-900 dark:text-gray-100 relative overflow-hidden">
       <motion.section
         initial="hidden"
         animate="visible"
