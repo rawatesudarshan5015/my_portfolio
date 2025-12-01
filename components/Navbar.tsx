@@ -16,11 +16,26 @@ const Navbar = () => {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-gray-900/80 text-white shadow-lg transition-all duration-300">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo / Name */}
-          <div className="text-2xl font-semibold tracking-wide">Sudarshan</div>
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black">
+      
+      {/* SAME WIDTH AS HERO */}
+      <div className="max-w-6xl mx-auto px-6">
+
+        {/* GRADIENT ONLY INSIDE WIDTH (NO ROUNDED CORNERS) */}
+        <div
+          className="
+            bg-gradient-to-b from-gray-50/80 via-white/70 to-white/40
+            dark:bg-gradient-to-b dark:from-gray-900/80 dark:via-gray-800/70 dark:to-gray-900/40
+            backdrop-blur-xl shadow-lg
+            transition-all duration-300
+            h-16
+            flex justify-between items-center
+          "
+        >
+          {/* Logo */}
+          <div className="text-2xl font-semibold tracking-wide text-gray-900 dark:text-white">
+            Sudarshan
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
@@ -28,7 +43,11 @@ const Navbar = () => {
               <a
                 key={path}
                 href={path}
-                className="hover:text-blue-400 text-gray-300 transition-colors duration-200"
+                className="
+                  text-gray-700 dark:text-gray-300
+                  hover:text-blue-600 dark:hover:text-blue-400
+                  transition-colors duration-200
+                "
               >
                 {label}
               </a>
@@ -38,7 +57,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-2xl focus:outline-none"
+            className="md:hidden text-2xl text-gray-900 dark:text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
@@ -47,20 +66,32 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {isOpen && (
-        <div className="md:hidden px-4 pb-4 space-y-2 bg-gray-800/95 border-t border-gray-700 backdrop-blur-md">
-          {navItems.map(({ label, path }) => (
-            <a
-              key={path}
-              href={path}
-              onClick={() => setIsOpen(false)}
-              className="block py-2 text-lg hover:text-blue-400 text-gray-300 transition-colors duration-200"
-            >
-              {label}
-            </a>
-          ))}
-          <div className="pt-2">
+        <div className="bg-black">
+          <div
+            className="
+              max-w-6xl mx-auto px-6 pb-4 space-y-2
+              bg-white/90 dark:bg-gray-800/95
+              text-gray-900 dark:text-white
+              backdrop-blur-xl border-t border-gray-200 dark:border-gray-700
+            "
+          >
+            {navItems.map(({ label, path }) => (
+              <a
+                key={path}
+                href={path}
+                onClick={() => setIsOpen(false)}
+                className="
+                  block py-2 text-lg
+                  hover:text-blue-600 dark:hover:text-blue-400
+                  transition-colors duration-200
+                "
+              >
+                {label}
+              </a>
+            ))}
+
             <ThemeToggle />
           </div>
         </div>
