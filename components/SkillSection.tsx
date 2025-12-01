@@ -15,9 +15,13 @@ import {
   SiMysql,
   SiGit,
   SiCplusplus,
-  SiTensorflow,
+  SiPostman,
+  SiNotion,
+  SiVscodium,
+  SiGraphql,
 } from 'react-icons/si'
-import { FaTools } from 'react-icons/fa'
+import { FaTools, FaKey } from 'react-icons/fa'
+import { RiJavaFill } from 'react-icons/ri'
 
 type Skill = {
   key: string
@@ -37,19 +41,30 @@ const SKILL_CATEGORIES: Record<string, Skill[]> = {
     { key: 'node', label: 'Node.js / Express', level: 85, icon: <SiNodedotjs /> },
     { key: 'mongodb', label: 'MongoDB', level: 82, icon: <SiMongodb /> },
     { key: 'mysql', label: 'MySQL', level: 78, icon: <SiMysql /> },
+    { key: 'rest_api', label: 'REST API Design', level: 83, icon: <FaKey /> },
+    { key: 'graphql', label: 'GraphQL', level: 70, icon: <SiGraphql /> },
+    { key: 'auth', label: 'Authentication & Authorization (JWT, OAuth)', level: 78, icon: <FaKey /> },
     { key: 'solidity', label: 'Solidity', level: 80, icon: <SiSolidity /> },
-  ],
-  'AI / ML': [
-    { key: 'python', label: 'Python', level: 75, icon: <SiPython /> },
-    { key: 'ml', label: 'TensorFlow / ML Basics', level: 65, icon: <SiTensorflow /> },
   ],
   Languages: [
     { key: 'cpp', label: 'C++', level: 82, icon: <SiCplusplus /> },
+    { key: 'java', label: 'Java', level: 82, icon: <RiJavaFill /> },
     { key: 'js', label: 'JavaScript', level: 90, icon: <SiTypescript /> },
   ],
   Tools: [
     { key: 'docker', label: 'Docker', level: 72, icon: <SiDocker /> },
     { key: 'git', label: 'Git / CI-CD', level: 80, icon: <SiGit /> },
+    { key: 'postman', label: 'Postman', level: 78 },
+    { key: 'vscode', label: 'VS Code', level: 90, icon: <SiVscodium /> },
+    { key: 'notion', label: 'Notion', level: 75, icon: <SiNotion /> },
+  ],
+  'Other': [
+    { key: 'dsa', label: 'Data Structures & Algorithms (DSA)', level: 88 },
+    { key: 'prob_solve', label: 'Problem Solving', level: 85 },
+    { key: 'cp', label: 'Competitive Programming', level: 82 },
+    { key: 'sys_design', label: 'System Design', level: 75 },
+    { key: 'oop', label: 'Object-Oriented Programming (OOP)', level: 85 },
+    { key: 'os', label: 'Operating Systems', level: 80 },
   ],
 }
 

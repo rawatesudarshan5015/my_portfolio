@@ -20,8 +20,8 @@ type Project = {
   title: string
   description: string
   image: string
-  github: string
-  live: string
+  github?: string | null
+  live?: string | null
   techStack: string[]
   icon: React.ReactNode
 }
@@ -31,9 +31,9 @@ const projects: Project[] = [
     title: 'Citywide Hospital Management System',
     description:
       'A city-level hospital network system supporting multiple hospitals, admin controls, and secure patient data sharing.',
-    image: '/projects/cityhospital.jpg',
-    github: 'https://github.com/yourusername/citywide-hms',
-    live: 'https://citywide-hms.vercel.app/',
+    image: '/public/projects/citywide',
+    github: null,
+    live: null,
     techStack: ['Next.js', 'MySQL', 'MongoDB', 'Resend Email API', 'TailwindCSS'],
     icon: <FaCity className="text-blue-500 text-2xl" />,
   },
@@ -42,8 +42,8 @@ const projects: Project[] = [
     description:
       'A blockchain-based secure voting system ensuring transparency, anonymity, and tamper-proof elections.',
     image: '/projects/voting.jpg',
-    github: 'https://github.com/yourusername/decentralized-voting-app',
-    live: 'https://voting-dapp.vercel.app/',
+    github: 'https://github.com/rawatesudarshan5015/Decentralized-Voting-App',
+    live: null,
     techStack: ['Solidity', 'Hardhat', 'Next.js', 'Ethers.js', 'MetaMask'],
     icon: <FaVoteYea className="text-green-500 text-2xl" />,
   },
@@ -52,8 +52,8 @@ const projects: Project[] = [
     description:
       'A smart travel planner that helps users design custom itineraries, manage bookings, and track trip progress.',
     image: '/projects/travel.jpg',
-    github: 'https://github.com/yourusername/travel-planner',
-    live: 'https://travel-planner.vercel.app/',
+    github: null,
+    live: null,
     techStack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS'],
     icon: <FaGlobeAsia className="text-orange-500 text-2xl" />,
   },
@@ -62,8 +62,8 @@ const projects: Project[] = [
     description:
       'A digital platform to manage hospital staff, patient records, appointments, and departmental operations.',
     image: '/projects/hospital.jpg',
-    github: 'https://github.com/yourusername/hospital-management-system',
-    live: 'https://hospital-system.vercel.app/',
+    github: 'https://github.com/rawatesudarshan5015/hospital-management',
+    live: null,
     techStack: ['Java', 'JDBC', 'MySQL', 'Swing UI'],
     icon: <FaHospitalUser className="text-teal-500 text-2xl" />,
   },
@@ -72,8 +72,8 @@ const projects: Project[] = [
     description:
       'A hotel booking and management system with room availability, guest check-in/out, and billing features.',
     image: '/projects/hotel.jpg',
-    github: 'https://github.com/yourusername/hotel-management-system',
-    live: 'https://hotel-system.vercel.app/',
+    github: 'https://github.com/rawatesudarshan5015/Hotel-Management-System',
+    live: null,
     techStack: ['React.js', 'Node.js', 'MySQL', 'Express', 'Bootstrap'],
     icon: <FaHotel className="text-purple-500 text-2xl" />,
   },
@@ -85,9 +85,9 @@ const ProjectsSection: React.FC = () => {
 
   return (
     <section
-  id="projects"
-  className="py-20 px-6 md:px-16 bg-[#0b1623] dark:bg-[#0a1420] text-gray-100 transition-colors duration-500"
->
+      id="projects"
+      className="py-20 px-6 md:px-16 bg-[#0b1623] dark:bg-[#0a1420] text-gray-100 transition-colors duration-500"
+    >
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-center mb-12">
         💼 My Projects
       </h2>
@@ -193,24 +193,32 @@ const ProjectsSection: React.FC = () => {
                 ))}
               </div>
 
-              <div className="flex items-center justify-between">
-                <Link
-                  href={selectedProject.github}
-                  target="_blank"
-                  className="flex items-center gap-2 bg-gray-900 dark:bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-black transition"
-                >
-                  <FaGithub />
-                  GitHub
-                </Link>
-                <Link
-                  href={selectedProject.live}
-                  target="_blank"
-                  className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-                >
-                  <FaExternalLinkAlt />
-                  Live Demo
-                </Link>
+              <div className="flex items-center gap-4 justify-between">
+
+                {selectedProject.github && (
+                  <Link
+                    href={selectedProject.github}
+                    target="_blank"
+                    className="flex items-center gap-2 bg-gray-900 dark:bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-black transition"
+                  >
+                    <FaGithub />
+                    GitHub
+                  </Link>
+                )}
+
+                {selectedProject.live && (
+                  <Link
+                    href={selectedProject.live}
+                    target="_blank"
+                    className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                  >
+                    <FaExternalLinkAlt />
+                    Live Demo
+                  </Link>
+                )}
+
               </div>
+
             </motion.div>
           </motion.div>
         )}
