@@ -57,14 +57,14 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl font-bold mb-6"
+          className="text-4xl font-bold mb-6 text-gray-900 dark:text-white"
         >
           Get in Touch
         </motion.h2>
 
         <motion.form
           onSubmit={handleSubmit}
-          className="bg-gray-800 p-8 rounded-2xl shadow-xl space-y-4 "
+          className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-8 rounded-2xl shadow-xl space-y-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -76,7 +76,7 @@ export default function ContactSection() {
               type="text"
               value={form.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="w-full px-4 py-2 rounded-lg bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-900 dark:text-gray-100"
               placeholder="Your Name"
             />
           </div>
@@ -87,7 +87,7 @@ export default function ContactSection() {
               type="email"
               value={form.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="w-full px-4 py-2 rounded-lg bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-900 dark:text-gray-100"
               placeholder="you@example.com"
             />
           </div>
@@ -98,7 +98,7 @@ export default function ContactSection() {
               rows={4}
               value={form.message}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="w-full px-4 py-2 rounded-lg bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-900 dark:text-gray-100"
               placeholder="Write your message..."
             ></textarea>
           </div>

@@ -10,20 +10,13 @@ import SkillSection from '@/components/SkillSection'
 export default function Home() {
   return (
     <>
-    <div id ="hero"><HeroSection /></div>
-      
-      <div id = "about"><AboutSection /></div>
-      <section id = "skill"><SkillSection /></section>
-      <section id = "projects"><ProjectsSection /></section>
-      <section id = "experience"><ExperienceTimeline /></section>
-      <section id = "github"><GitHubSkills username="rawatesudarshan5015" /></section>
-
-      <section id = "contact"><ContactSection /></section>
-      
-      
-      
-      
-      
+      <HeroSection />
+      <AboutSection />
+      <SkillSection />
+      <ProjectsSection />
+      <ExperienceTimeline />
+      <GitHubSkills username="rawatesudarshan5015" />
+      <ContactSection />
     </>
   )
 }

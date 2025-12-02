@@ -75,7 +75,10 @@ const AboutSection: React.FC = () => {
       : 'Good Evening 🌙'
 
   return (
-<section className="py-20 px-6 md:px-16 bg-[#0b1623] dark:bg-[#0a1420] text-gray-100 transition-colors duration-500">
+    <section
+      id="about"
+      className="py-20 px-6 md:px-16 bg-gray-50 dark:bg-[#0a1420] text-gray-900 dark:text-gray-100 transition-colors duration-500"
+    >
       <div className="max-w-6xl mx-auto text-center">
         {/* Greeting */}
         <motion.p

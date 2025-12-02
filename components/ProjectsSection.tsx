@@ -31,7 +31,7 @@ const projects: Project[] = [
     title: 'Citywide Hospital Management System',
     description:
       'A city-level hospital network system supporting multiple hospitals, admin controls, and secure patient data sharing.',
-    image: '/public/projects/citywide',
+    image: '/projects/Citywide-HMS.jpg',
     github: null,
     live: null,
     techStack: ['Next.js', 'MySQL', 'MongoDB', 'Resend Email API', 'TailwindCSS'],
@@ -86,7 +86,7 @@ const ProjectsSection: React.FC = () => {
   return (
     <section
       id="projects"
-      className="py-20 px-6 md:px-16 bg-[#0b1623] dark:bg-[#0a1420] text-gray-100 transition-colors duration-500"
+      className="py-20 px-6 md:px-16 bg-gray-50 dark:bg-[#0a1420] text-gray-900 dark:text-gray-100 transition-colors duration-500"
     >
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-center mb-12">
         💼 My Projects

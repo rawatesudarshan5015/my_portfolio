@@ -39,9 +39,12 @@ export default function HeroSection() {
   if (!mounted) return null
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 via-blue-50 to-gray-100 
+    <div
+      id="hero"
+      className="bg-gradient-to-b from-gray-50 via-blue-50 to-gray-100 
 dark:from-gray-900 dark:via-gray-800 dark:to-[#0b1623] 
-text-gray-900 dark:text-gray-100 relative overflow-hidden">
+text-gray-900 dark:text-gray-100 relative overflow-hidden"
+    >
       <motion.section
         initial="hidden"
         animate="visible"
@@ -95,14 +98,14 @@ text-gray-900 dark:text-gray-100 relative overflow-hidden">
           {/* Buttons */}
           <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
             <Link
-              href="/projects"
+              href="#projects"
               className="px-6 py-3 bg-blue-600 text-white rounded-full shadow-md shadow-blue-500/30 
                         hover:bg-blue-700 transition duration-300"
             >
               🚀 View Projects
             </Link>
             <Link
-              href="/contact"
+              href="#contact"
               className="px-6 py-3 border border-blue-600 text-blue-600 rounded-full 
                         hover:bg-blue-50 dark:hover:bg-gray-800 transition duration-300"
             >
@@ -111,6 +114,7 @@ text-gray-900 dark:text-gray-100 relative overflow-hidden">
             <a
               href="/Sudarshan_Rawate_Resume.pdf"
               download
+              rel="noopener noreferrer"
               className="px-6 py-3 border border-purple-600 text-purple-600 rounded-full 
                         hover:bg-purple-50 dark:hover:bg-gray-800 transition duration-300"
             >
@@ -123,6 +127,7 @@ text-gray-900 dark:text-gray-100 relative overflow-hidden">
             <a
               href="https://github.com/rawatesudarshan5015"
               target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"
             >
               <FaGithub />
@@ -130,6 +135,7 @@ text-gray-900 dark:text-gray-100 relative overflow-hidden">
             <a
               href="https://linkedin.com/in/sudarshan-rawate"
               target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"
             >
               <FaLinkedin />
@@ -137,6 +143,7 @@ text-gray-900 dark:text-gray-100 relative overflow-hidden">
             <a
               href="https://leetcode.com/u/rawatesudarshan/"
               target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-700 dark:text-gray-300 hover:text-orange-500 transition"
             >
               <SiLeetcode />
@@ -144,6 +151,7 @@ text-gray-900 dark:text-gray-100 relative overflow-hidden">
             <a
               href="https://www.geeksforgeeks.org/user/rawatesudafhas/"
               target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-700 dark:text-gray-300 hover:text-green-500 transition"
             >
               <SiGeeksforgeeks />
