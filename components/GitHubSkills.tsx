@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 import GitHubCalendar from 'react-github-calendar'
 
 type Repo = {
@@ -21,18 +22,26 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  const { resolvedTheme } = useTheme()
+  const [calendarTheme, setCalendarTheme] = useState<'light' | 'dark'>('light')
+  const [isDarkTheme, setIsDarkTheme] = useState(false)
 
   // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true)
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark')
-    }
   }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+    const isDark = resolvedTheme === 'dark'
+    setCalendarTheme(isDark ? 'dark' : 'light')
+    setIsDarkTheme(isDark)
+  }, [resolvedTheme, mounted])
 
   // Fetch GitHub data
   useEffect(() => {
+    if (!username) return
+
     const fetchRepos = async () => {
       try {
         const res = await fetch(`https://api.github.com/users/${username}/repos`)
@@ -75,8 +84,11 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
     return <p className="text-center text-red-500">Failed to load GitHub data.</p>
 
   return (
-    <section  className="py-20 px-6 md:px-16 bg-[#0b1623] dark:bg-[#0a1420] text-gray-100 transition-colors duration-500">
-      {/* 🧠 Section Header */}
+    <section
+      id="github"
+      className="py-20 px-6 md:px-16 bg-gray-50 dark:bg-[#0a1420] text-gray-900 dark:text-gray-100 transition-colors duration-500"
+    >
+      {/* Header */}
       <motion.h2
         className="text-4xl md:text-5xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"
         initial={{ opacity: 0, y: -20 }}
@@ -87,7 +99,7 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
         🧩 GitHub Projects & Skills
       </motion.h2>
 
-      {/* 🧠 Top Languages */}
+      {/* Top Languages */}
       <div className="flex flex-wrap justify-center gap-4 mb-16">
         {languages.map((lang) => (
           <motion.span
@@ -103,7 +115,7 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
         ))}
       </div>
 
-      {/* 🗂️ Repositories Grid */}
+      {/* Repositories */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
         {repos.map((repo) => (
           <motion.a
@@ -131,7 +143,7 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
         ))}
       </div>
 
-      {/* 🟩 GitHub Contribution Graph */}
+      {/* Contribution Graph */}
       <div className="max-w-4xl mx-auto text-center">
         <motion.h3
           className="text-3xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500"
@@ -143,21 +155,24 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
           🟢 GitHub Activity
         </motion.h3>
 
-        <div className="overflow-x-auto mb-14 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#11182a] p-4 shadow-sm">
+        <div className="overflow-x-auto mb-14 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#11182a] p-4 shadow-sm text-gray-900 dark:text-gray-100">
           <GitHubCalendar
             username={username}
             blockSize={15}
             blockMargin={5}
-            colorScheme={theme}
+            colorScheme={calendarTheme}
             fontSize={14}
           />
         </div>
 
-        {/* 📊 Streak + Stats */}
+        {/* Streak + Stats */}
         <div className="grid md:grid-cols-2 gap-8 justify-center items-center">
+
+          {/* 🔥 FIXED — force reload when username changes */}
           <motion.img
+            key={`streak-${username}`}   // <-- IMPORTANT FIX
             loading="lazy"
-            src={`https://streak-stats.demolab.com?user=${username}&theme=${theme}&hide_border=true`}
+            src={`https://github-readme-streak-stats.herokuapp.com/?user={username}&hide_border=true&theme=dark" : "}`}
             alt="GitHub Streak"
             className="mx-auto rounded-xl shadow-md"
             initial={{ opacity: 0, y: 10 }}
@@ -165,9 +180,11 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           />
+
           <motion.img
+            key={`stats-${username}`}
             loading="lazy"
-            src={`https://github-readme-stats-sigma-five.vercel.app/api?username=${username}&show_icons=true&theme=${theme}&hide_border=true`}
+            src={`https://github-readme-stats-sigma-five.vercel.app/api?username=${username}&show_icons=true&hide_border=true${isDarkTheme ? '&theme=dark' : ''}`}
             alt="GitHub Stats"
             className="mx-auto rounded-xl shadow-md"
             initial={{ opacity: 0, y: 10 }}

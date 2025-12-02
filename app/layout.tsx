@@ -16,7 +16,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
           <Navbar />
 
           {/* Same width as navbar */}
-          <main className="max-w-6xl mx-auto px-6">
+          <main className="max-w-6xl mx-auto px-6 pt-16">
             {children}
           </main>
 
