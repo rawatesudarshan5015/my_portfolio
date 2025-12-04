@@ -13,8 +13,8 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <SkillSection />
-      <ProjectsSection />
       <ExperienceTimeline />
+      <ProjectsSection />
       <GitHubSkills username="rawatesudarshan5015" />
       <ContactSection />
     </>

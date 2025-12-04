@@ -63,7 +63,7 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
 
         const topLanguages = Object.entries(langCount)
           .sort((a, b) => b[1] - a[1])
-          .slice(0, 5)
+          .slice(0, 6)
           .map(([lang]) => lang)
 
         setLanguages(topLanguages)
@@ -169,17 +169,17 @@ const GitHubSkills: React.FC<{ username: string }> = ({ username }) => {
         <div className="grid md:grid-cols-2 gap-8 justify-center items-center">
 
           {/* 🔥 FIXED — force reload when username changes */}
-          <motion.img
-            key={`streak-${username}`}   // <-- IMPORTANT FIX
-            loading="lazy"
-            src={`https://github-readme-streak-stats.herokuapp.com/?user={username}&hide_border=true&theme=dark" : "}`}
-            alt="GitHub Streak"
-            className="mx-auto rounded-xl shadow-md"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          />
+<motion.img
+  key={`streak-${username}`}
+  loading="lazy"
+  src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&hide_border=true&theme=${isDarkTheme ? 'dark' : 'default'}`}
+  alt="GitHub Streak"
+  className="mx-auto rounded-xl shadow-md"
+  initial={{ opacity: 0, y: 10 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+/>
 
           <motion.img
             key={`stats-${username}`}
