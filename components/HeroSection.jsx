@@ -112,7 +112,7 @@ text-gray-900 dark:text-gray-100 relative overflow-hidden"
               📬 Contact Me
             </Link>
             <a
-              href="/Sudarshan_Rawate_Resume.pdf"
+              href="https://drive.google.com/file/d/1wBJeTw6jgQQiL4pT1gSsPMzxf-jlFGI0/view?usp=drive_link"
               download
               rel="noopener noreferrer"
               className="px-6 py-3 border border-purple-600 text-purple-600 rounded-full 
@@ -149,7 +149,7 @@ text-gray-900 dark:text-gray-100 relative overflow-hidden"
               <SiLeetcode />
             </a>
             <a
-              href="https://www.geeksforgeeks.org/user/rawatesudafhas/"
+              href="https://www.geeksforgeeks.org/profile/rawatesudafhas?tab=activity"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-700 dark:text-gray-300 hover:text-green-500 transition"

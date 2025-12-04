@@ -114,28 +114,51 @@ export default function ContactSection() {
           </motion.button>
         </motion.form>
 
-        <motion.div
-          className="flex justify-center space-x-6 mt-8 text-2xl"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          <a href="mailto:rawatesudarshan5015@gmail.com" className="hover:text-red-400 transition">
-            <FaEnvelope />
-          </a>
-          <a href="https://github.com/rawatesudarshan5015" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition">
-            <FaGithub />
-          </a>
-          <a href="https://linkedin.com/in/sudarshan-rawate" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition">
-            <FaLinkedin />
-          </a>
-          <a href="https://leetcode.com/sudarshanrawate" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition">
-            <SiLeetcode />
-          </a>
-          <a href="https://auth.geeksforgeeks.org/user/sudarshanrawate" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition">
-            <SiGeeksforgeeks />
-          </a>
-        </motion.div>
+      <motion.div
+  className="flex justify-center space-x-6 mt-8 text-2xl"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ delay: 0.3 }}
+>
+  <a
+    href="mailto:rawatesudarshan5015@gmail.com"
+    className="text-gray-400 dark:text-gray-200 hover:text-red-400 transition"
+  >
+    <FaEnvelope />
+  </a>
+  <a
+    href="https://github.com/rawatesudarshan5015"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-400 dark:text-gray-200 hover:text-green-300 transition"
+  >
+    <FaGithub />
+  </a>
+  <a
+    href="https://linkedin.com/in/sudarshan-rawate"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-400 dark:text-gray-200 hover:text-blue-500 transition"
+  >
+    <FaLinkedin />
+  </a>
+  <a
+    href="https://leetcode.com/u/rawatesudarshan/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-400 dark:text-gray-200 hover:text-yellow-400 transition"
+  >
+    <SiLeetcode />
+  </a>
+  <a
+    href="https://www.geeksforgeeks.org/profile/rawatesudafhas?tab=activity"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-400 dark:text-gray-200 hover:text-green-400 transition"
+  >
+    <SiGeeksforgeeks />
+  </a>
+</motion.div>
       </div>
     </section>
   )

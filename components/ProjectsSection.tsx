@@ -41,7 +41,7 @@ const projects: Project[] = [
     title: 'Decentralized Voting Application',
     description:
       'A blockchain-based secure voting system ensuring transparency, anonymity, and tamper-proof elections.',
-    image: '/projects/voting.jpg',
+    image: '/projects/voting.png',
     github: 'https://github.com/rawatesudarshan5015/Decentralized-Voting-App',
     live: null,
     techStack: ['Solidity', 'Hardhat', 'Next.js', 'Ethers.js', 'MetaMask'],
@@ -51,7 +51,7 @@ const projects: Project[] = [
     title: 'Itinerary Travel Planning Website',
     description:
       'A smart travel planner that helps users design custom itineraries, manage bookings, and track trip progress.',
-    image: '/projects/travel.jpg',
+    image: '/projects/travel.png',
     github: null,
     live: null,
     techStack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS'],
@@ -61,7 +61,7 @@ const projects: Project[] = [
     title: 'Hospital Management System',
     description:
       'A digital platform to manage hospital staff, patient records, appointments, and departmental operations.',
-    image: '/projects/hospital.jpg',
+    image: '/projects/hospital.png',
     github: 'https://github.com/rawatesudarshan5015/hospital-management',
     live: null,
     techStack: ['Java', 'JDBC', 'MySQL', 'Swing UI'],
@@ -74,7 +74,7 @@ const projects: Project[] = [
     image: '/projects/hotel.jpg',
     github: 'https://github.com/rawatesudarshan5015/Hotel-Management-System',
     live: null,
-    techStack: ['React.js', 'Node.js', 'MySQL', 'Express', 'Bootstrap'],
+    techStack: ['Java', 'JDBC', 'MySQL', 'Swing UI'],
     icon: <FaHotel className="text-purple-500 text-2xl" />,
   },
 ]
@@ -227,4 +227,4 @@ const ProjectsSection: React.FC = () => {
   )
 }
 
-export default ProjectsSection
+export default ProjectsSection;
