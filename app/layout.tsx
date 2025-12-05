@@ -1,7 +1,7 @@
 import './globals.css'
 import Navbar from '../components/Navbar'
 import { ThemeProvider } from 'next-themes'
-
+import { Analytics } from "@vercel/analytics/next"
 export const metadata = {
   title: 'Sudarshan Rawate | Portfolio',
   description: 'My developer portfolio',
@@ -12,7 +12,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          
+          <Analytics />
           <Navbar />
 
           {/* Same width as navbar */}
