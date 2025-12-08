@@ -13,6 +13,7 @@ import {
   FaVoteYea,
   FaGithub,
   FaExternalLinkAlt,
+  FaCalendarAlt,
 } from 'react-icons/fa'
 import { IoClose } from 'react-icons/io5'
 
@@ -47,6 +48,15 @@ const projects: Project[] = [
     techStack: ['Solidity', 'Hardhat', 'Next.js', 'Ethers.js', 'MetaMask'],
     icon: <FaVoteYea className="text-green-500 text-2xl" />,
   },
+  {
+  title: 'Routine Tracker - Schedule Management App',
+  description: 'A comprehensive schedule tracker app where users can build daily routines with activities, track completion, and view detailed reports.',
+  image: '/projects/routine-tracker.png',
+  github: 'https://github.com/rawatesudarshan5015/routine-tracker',
+  live: 'https://routine-tracker.sudarshanrawate.me',
+  techStack: ['Next.js 15', 'React 19', 'Node.js', 'MongoDB Atlas', 'TailwindCSS', 'JWT Authentication'],
+  icon: <FaCalendarAlt className="text-blue-500 text-2xl" />,
+},
   {
     title: 'Itinerary Travel Planning Website',
     description:
