@@ -112,7 +112,7 @@ text-gray-900 dark:text-gray-100 relative overflow-hidden"
               📬 Contact Me
             </Link>
             <a
-              href="https://drive.google.com/file/d/1wBJeTw6jgQQiL4pT1gSsPMzxf-jlFGI0/view?usp=drive_link"
+              href="/api/download-resume"
               download
               rel="noopener noreferrer"
               className="px-6 py-3 border border-purple-600 text-purple-600 rounded-full 

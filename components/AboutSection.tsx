@@ -101,26 +101,23 @@ const AboutSection: React.FC = () => {
         </motion.h2>
 
         {/* Description */}
-        <motion.p
-          className="max-w-4xl mx-auto text-lg leading-relaxed mb-12 text-gray-700 dark:text-gray-300"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          I’m <strong>Sudarshan Rawate</strong>, a <strong>Blockchain Developer</strong> and{' '}
-          <strong>Full-Stack Engineer</strong> passionate about building secure and scalable products.
-          I graduated in <strong>Information Technology</strong> from <strong>I2IT Pune</strong> with a CGPA of{' '}
-          <strong>7.75</strong>.
-          <br />
-          <br />
-          I’ve worked on projects ranging from blockchain-based Voting systems and hospital platforms to
-          quantitative trading simulators. My goal is to build innovative blockchain infrastructure and collaborate
-          with world-class Web3 teams like <strong>Coinbase</strong>.
-          <br />
-          <br />
-          Outside of tech, I enjoy gym workouts, trekking, and exploring new ideas in AI, blockchain, and finance.
-        </motion.p>
-
+       <motion.p
+  className="max-w-4xl mx-auto text-lg leading-relaxed mb-12 text-gray-700 dark:text-gray-300"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.8 }}
+>
+  I’m <strong>Sudarshan Rawate</strong>, a <strong>Blockchain and Backend Engineer</strong> focused on building secure, high-performance systems. I specialize in smart contract development, scalable API architecture, and designing production-ready backend infrastructure.
+  <br />
+  <br />
+  I’ve built decentralized voting applications, role-based hospital management systems, and quantitative trading simulators — combining strong fundamentals in data structures, system design, and distributed systems.
+  <br />
+  <br />
+  My long-term focus is contributing to robust Web3 infrastructure and solving complex backend challenges at scale, particularly within high-impact blockchain ecosystems.
+  <br />
+  <br />
+  Outside engineering, I train consistently in the gym and enjoy trekking — disciplines that reflect how I approach technology: structured, consistent, and performance-driven.
+</motion.p>
         {/* What I Do */}
         <motion.h3
           className="text-3xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500"
