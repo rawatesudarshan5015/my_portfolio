@@ -15,6 +15,18 @@ const experiences = [
       'Integrated decentralized data layers for seamless DApp functionality.',
     ],
   },
+  {
+  role: 'Full Stack Developer',
+  company: 'Zuneko Labs',
+  type: 'Internship',
+  duration: 'Apr 2025 – Present',
+  description: [
+    'Building backend services using Python (FastAPI) to handle APIs, data processing, and business logic.',
+    'Developing frontend interfaces using Next.js for real-world application workflows and user interaction.',
+    'Integrating frontend and backend through REST APIs and managing state/data flow across the application.',
+    'Working on end-to-end features including API design, debugging, and performance improvements.',
+  ],
+},
 ]
 
 const volunteering = [
